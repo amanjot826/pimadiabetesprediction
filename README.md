@@ -71,16 +71,5 @@ This project aims to predict the onset of diabetes using patient data from the P
 2. Feature selection improves clarity and performance.
 3. PCA did not boost accuracy post-refinement, reinforcing the importance of meaningful features over dimensionality reduction alone.
 
-## Project Structure
-.
-├── data/
-│   └── diabetes.csv
-├── notebooks/
-│   └── diabetes_prediction.ipynb
-├── plots/
-│   └── roc_curve.png
-│   └── pr_curve.png
-├── README.md
-
 ## Author
 Developed by Amanjot Kaur as a demonstration of ML in healthcare decision support systems.
