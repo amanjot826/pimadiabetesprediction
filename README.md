@@ -36,19 +36,26 @@ This project aims to predict the onset of diabetes using patient data from the P
 
 ## Model Comparison Summary
 
-| Model                | Accuracy | Precision (1) | Recall (1) | F1 Score (1) | Best Threshold |
-|----------------------|----------|---------------|------------|--------------|----------------|
-| Original             | 0.77     | 0.70          | **0.96**   | 0.81         | 0.26           |
-| Refined              | **0.805**| **0.77**      | 0.88       | **0.82**     | 0.45           |
-| Refined + PCA        | **0.805**| **0.77**      | 0.88       | **0.82**     | 0.41           |
+| Metric              | Original (Threshold = 0.35)  | Refined (Threshold = 0.45)  | Refined + PCA (Threshold = 0.45) |
+|---------------------|------------------------------|-----------------------------|----------------------------------|
+| **Accuracy**        | 0.79                         | **0.805**                   | **0.805**                        |
+| **Precision (1)**   | 0.73                         | **0.77**                    | **0.77**                         |
+| **Recall (1)**      | **0.91**                     | 0.88                        | 0.88                             |
+| **F1 Score (1)**    | 0.81                         | **0.82**                    | **0.82**                         |
+| **TN / FP**         | 67 / 33                      | **73 / 27**                 | **73 / 27**                      |
+| **FN / TP**         | **9 / 91**                   | 12 / 88                     | 12 / 88                          |
 
-**Key Insight**: The refined models outperformed the original by reducing false positives and improving precision — **without sacrificing recall**, which is vital in medical prediction scenarios.
+## **Key Insight**:
+- The **Refined and Refined + PCA models** outperform the **Original model** in accuracy, precision, and F1 score, while still maintaining **strong recall (0.88)**.
+- The **Original model** achieved the highest recall (**0.91**), but at the cost of **lower precision (0.73)** and more **false positives** (33).
+- The **Refined model** offered a **better balance**, improving precision while maintaining high recall.
+- **PCA did not offer any significant performance gains** compared to the **Refined model**, confirming that feature selection alone is sufficient.
 
 ## Visual Outputs
 
-- **ROC AUC Score** ≈ 0.849 for refined models
-- **PR Curves** highlight a good balance between sensitivity and specificity
-- **Coefficient analysis** showed interpretable feature effects on diabetes likelihood
+- **ROC AUC Score** ≈ 0.849 for refined models, indicating strong model discriminative power.
+- **PR Curves** show a **good balance** between **sensitivity** (recall) and **specificity** (precision).
+- **Coefficient analysis** reveals the impact of key features like `Glucose` and `BMI` on predicting diabetes risk.
 
 ## How to Run
 
